@@ -38,10 +38,9 @@ jobs:
       env:
         pantheon_repo: '${{ secrets.LH_PANTHEON_REPO }}'
       run: |
-        git checkout main
         git remote add pantheon $pantheon_repo
         git config --global user.email "matt@almanac.digital"
         git config --global user.name "mattalmanac"
         git add .
-        git commit -q -m 'Deploy to Pantheon from Github'
+        git commit --allow-empty -q -m 'Deploy to Pantheon from Github'
         git push --force pantheon HEAD:refs/heads/master
