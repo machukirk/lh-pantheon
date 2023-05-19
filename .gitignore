@@ -1,6 +1,5 @@
 # WordPress #
 ############
-wp-config-local.php
 wp-cli.local.yml
 wp-content/themes/twentytwentythree
 wp-content/uploads
