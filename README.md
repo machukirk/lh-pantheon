@@ -10,10 +10,10 @@ If you do not have PNPM, you can install globally using `npm i -g pnpm`
 
 ## Setup
 
-    git clone this repository
+    git clone this/repository
 
     lando init
 
-    ddev start
+    lando start
     
 Open the address it supplies you in your browser of your choice.
