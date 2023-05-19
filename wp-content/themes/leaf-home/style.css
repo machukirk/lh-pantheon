@@ -19,8 +19,3 @@ the src/ directory. These SCSS files get bundled into production assets in the
 webpack build that runs on deploy (or, locally, `npm run build`/`npm start`).
 =-=~=-=-=~=-=-=~=-=-=~=-=-=~=-=-=~=-=-=~=-=-=~=-=-=~=-=-=~=-=-=~=-=-=~=-=-=~=-=
 */
-
-body {
-	background-color: red;
-	color: blueviolet;
-}
