@@ -2,8 +2,7 @@
 ############
 wp-config-local.php
 wp-cli.local.yml
-!wp-content/themes/leaf-home
-wp-content/themes/
+wp-content/themes/twentytwentythree
 wp-content/uploads
 wp-content/blogs.dir/
 wp-content/upgrade/
