@@ -41,7 +41,6 @@ jobs:
         git remote add pantheon $pantheon_repo
         git config --global user.email "matt@almanac.digital"
         git config --global user.name "mattalmanac"
-        git rm `cat .gitignore-pantheon | sed 's/^\///g'`
         cat .gitignore-pantheon >> .gitignore
         git add .
         git commit --allow-empty -q -m 'Deploy to Pantheon from Github'
