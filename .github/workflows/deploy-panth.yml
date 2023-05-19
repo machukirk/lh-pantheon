@@ -19,20 +19,6 @@ jobs:
         config: ${{ secrets.LH_SSH_CONFIG }}
         known_hosts: ${{ secrets.LH_KNOWN_HOSTS }}
 
-    # TERMINUS
-    - name: Install Terminus
-      uses: pantheon-systems/terminus-github-actions@main
-      with:
-        pantheon-machine-token: ${{ secrets.LH_PANTHEON_MACHINE_TOKEN }}
-
-    # TERMINUS BUILD TOOLS
-    - name: Install Terminus Build Tools
-      run: terminus self:plugin:install terminus-build-tools-plugin
-
-    # TERMINUS IGNORE GITIGNORE
-    - name: Update Ignore File.
-      run: terminus build:gitignore:cut
-
     # NODE
     - uses: actions/setup-node@v2
       with:
@@ -55,6 +41,8 @@ jobs:
         git remote add pantheon $pantheon_repo
         git config --global user.email "matt@almanac.digital"
         git config --global user.name "mattalmanac"
+        git rm `cat .gitignore-panth | sed 's/^\///g'`
+        cat .gitignore-panth >> .gitignore
         git add .
         git commit --allow-empty -q -m 'Deploy to Pantheon from Github'
         git push --force pantheon HEAD:refs/heads/master
