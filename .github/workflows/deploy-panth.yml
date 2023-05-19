@@ -44,7 +44,7 @@ jobs:
         git remote update
         git fetch
         git rm `cat .gitignore-pantheon | sed 's/^\///g'`
-        cat .gitignore-pantheon >> .gitignore
+        cat .gitignore-pantheon > .gitignore
         git add .
         git commit --allow-empty -q -m 'Deploy to Pantheon from Github'
         git push --force pantheon HEAD:refs/heads/master
