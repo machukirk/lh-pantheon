@@ -43,7 +43,7 @@ jobs:
     - name: Install Terminus Build Tools
       run: terminus self:plugin:install terminus-build-tools-plugin
 
-    # TERMINUS IGNORE GITIGNORE.
+    # TERMINUS IGNORE GITIGNORE
     - name: Update Ignore File.
       run: terminus build:gitignore:cut
 
