@@ -1,0 +1,46 @@
+name: Deploy to Pantheon
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    # CHECKOUT
+    - uses: actions/checkout@v1
+
+    # NODE
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 16.x
+
+    # DEPENDENCIES
+    - name: Install dependencies
+      run: |
+        composer install
+
+    # # BUILD
+    # - name: Build
+    #   run: pnpm run build
+
+    # SSH KEY ACCESS
+    - uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.LH_PANTHEON_SSH_KEY }}
+        config: ${{ secrets.LH_SSH_CONFIG }}
+        known_hosts: ${{ secrets.LH_KNOWN_HOSTS }}
+
+    #DEPLOY
+    - name: deployer
+      env:
+        pantheon_repo: '${{ secrets.LH_PANTHEON_REPO }}'
+      run: |
+        git remote add pantheon $pantheon_repo
+        git config --global user.email "matt@almanac.digital"
+        git config --global user.name "mattalmanac"
+        git add .
+        git commit -q -m 'Deploy to Pantheon from Github'
+        git push --force pantheon HEAD:refs/heads/master

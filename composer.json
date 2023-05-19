@@ -1,0 +1,23 @@
+{
+    "name": "hm/leaf",
+    "description": "Composer package to setup Leaf Home.",
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "johnpbloch/wordpress": "*",
+        "wpackagist-theme/twentytwentythree":"*"
+    },
+    "config": {
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true,
+            "composer/installers": true
+        }
+    },
+    "extra": {
+        "wordpress-install-dir": "wp"
+    }
+}

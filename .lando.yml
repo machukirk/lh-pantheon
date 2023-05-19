@@ -1,0 +1,14 @@
+name: leaf-test
+recipe: pantheon
+config:
+  framework: wordpress
+  site: leaf-test
+  id: e5b84e1a-c99d-4743-bc20-c49f8a3b4472
+services:
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database
+proxy:
+  phpmyadmin:
+    - pma.leaf-test.lndo.site
