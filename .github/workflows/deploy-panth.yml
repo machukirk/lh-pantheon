@@ -41,8 +41,9 @@ jobs:
         git remote add pantheon $pantheon_repo
         git config --global user.email "matt@almanac.digital"
         git config --global user.name "mattalmanac"
-        git ls-files -z | xargs -0 rm
-        git checkout -- .
+        git stash
+        git checkout .
+        git checkout master
         git add .
         git commit -q -m 'Deploy to Pantheon from Github'
         git push --force pantheon HEAD:refs/heads/master
