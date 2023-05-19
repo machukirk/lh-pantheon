@@ -42,7 +42,7 @@ jobs:
         git config --global user.email "matt@almanac.digital"
         git config --global user.name "mattalmanac"
         git rm `cat .gitignore-panth | sed 's/^\///g'`
-        cat .gitignore-panth >> .gitignore
+        cat .gitignore-pantheon >> .gitignore
         git add .
         git commit --allow-empty -q -m 'Deploy to Pantheon from Github'
         git push --force pantheon HEAD:refs/heads/master
