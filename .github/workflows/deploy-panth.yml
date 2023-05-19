@@ -12,20 +12,6 @@ jobs:
     # CHECKOUT
     - uses: actions/checkout@v1
 
-    # NODE
-    - uses: actions/setup-node@v2
-      with:
-        node-version: 16.x
-
-    # DEPENDENCIES
-    - name: Install dependencies
-      run: |
-        composer install
-
-    # # BUILD
-    # - name: Build
-    #   run: pnpm run build
-
     # SSH KEY ACCESS
     - uses: shimataro/ssh-key-action@v2
       with:
@@ -46,6 +32,20 @@ jobs:
     # TERMINUS IGNORE GITIGNORE
     - name: Update Ignore File.
       run: terminus build:gitignore:cut
+
+    # NODE
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 16.x
+
+    # DEPENDENCIES
+    - name: Install dependencies
+      run: |
+        composer install
+
+    # # BUILD
+    # - name: Build
+    #   run: pnpm run build
 
     #DEPLOY
     - name: deployer
